@@ -22,7 +22,7 @@
 		<form:select path="age" items="${ageList}" />
 		<br />
 		
-    <input type="submit" value="Submit" /> 
+    	<input type="submit" value="Submit" /> 
 	</form:form>
 </body>
 </html>

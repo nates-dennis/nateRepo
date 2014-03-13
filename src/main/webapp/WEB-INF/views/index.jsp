@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -26,7 +26,7 @@
 					<li><a href="#">View Vehicles</a></li>
 				</ul>
 			</li>
-			<li><a href="/CarRental/CustomerMenu/">Customer Menu</a>
+			<li><a href="/natesRepo/CustomerMenu/">Customer Menu</a>
 				<ul class="subMenu">
 					<li><a href="AddCustomer.jsp">Add Customer</a></li>
 					<li><a href="RemoveCustomer.jsp">Remove Customer</a></li>
@@ -35,7 +35,7 @@
 			</li>
 			<li><a href="#">Rental Menu</a>
 				<ul class="subMenu">
-					<li><a href=#">Rent Vehicle</a></li>
+					<li><a href="#">Rent Vehicle</a></li>
 				</ul>
 			</li>
 		</ul>

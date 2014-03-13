@@ -56,7 +56,7 @@ public class CustomerMenuController {
 	public ModelAndView submitCustomer(@ModelAttribute Customer customer, ModelMap model) {
 		
 		menu.addCustomer(customer);
-		List<Customer> list = menu.getCustomers();
+//		List<Customer> list = menu.getCustomers();
 		return new ModelAndView("customerMenu",model);
  
 	}
