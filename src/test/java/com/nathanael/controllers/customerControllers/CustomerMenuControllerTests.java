@@ -85,6 +85,16 @@ public class CustomerMenuControllerTests {
 		
 	}
 	
+	@Test
+	public void testDeleteCustomer(){
+		
+		
+		ModelAndView mav = customerMenuController.deleteCustomer(customer, model);
+		
+		assertEquals(mav.getViewName(), "customerMenu");
+		assertEquals(mav.getModel(), model);
+	}
+	
 	private List<Integer> getAgeList() {
 		// TODO Auto-generated method stub
 		List<Integer> list = new ArrayList<Integer>();

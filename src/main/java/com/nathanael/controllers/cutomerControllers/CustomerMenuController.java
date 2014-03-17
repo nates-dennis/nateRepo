@@ -43,6 +43,12 @@ public class CustomerMenuController {
 		return ageList;
 	}
 	
+	@ModelAttribute("customers")
+	public List<Customer> customerList(){
+		
+		return menu.getCustomers();
+	}
+	
 	@RequestMapping(value = "/AddCustomer", method = RequestMethod.GET)
 	public ModelAndView addCustomer(ModelMap model) {
 		
@@ -64,10 +70,18 @@ public class CustomerMenuController {
 	@RequestMapping("/ViewCustomers")
 	public ModelAndView viewCustomers(ModelMap model) {
 
-		model.addAttribute("customers", menu.getCustomers());
-		model.addAttribute("test", 34);
+//		model.addAttribute("customers", menu.getCustomers());
 		return new ModelAndView("customer/ViewCustomer",model);
  
+	}
+	
+	@RequestMapping("/deleteCustomer")
+	public ModelAndView deleteCustomer(@ModelAttribute Customer customer, ModelMap model){
+		
+		
+		menu.removeCustomer(customer);
+		
+		return new ModelAndView("cutomer/RemoveCustomer", model);
 	}
 	
 }
