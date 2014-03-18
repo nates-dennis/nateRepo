@@ -2,11 +2,11 @@ package com.nathanael.controllers.cutomerControllers;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -21,6 +21,10 @@ public class CustomerMenuController {
 	
 	@Autowired
 	CustomerMenu menu;
+	
+	public void setMenu(CustomerMenu menu){
+		this.menu = menu;
+	}
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView cutomerMenu(ModelMap model, CustomerMenu customerMenu) {
@@ -75,13 +79,22 @@ public class CustomerMenuController {
  
 	}
 	
-	@RequestMapping("/deleteCustomer")
-	public ModelAndView deleteCustomer(@ModelAttribute Customer customer, ModelMap model){
+	@RequestMapping(value="/RemoveCustomer", method=RequestMethod.GET)
+	public ModelAndView getDeleteCustomerList(ModelMap model){
 		
+		return new ModelAndView("customer/RemoveCustomer", model);
+	}
+	
+	@RequestMapping(value="/RemoveCustomer/{name}", method=RequestMethod.POST)
+	public ModelAndView submitDeleteCustomer(@PathVariable String name, ModelMap model){
 		
-		menu.removeCustomer(customer);
-		
-		return new ModelAndView("cutomer/RemoveCustomer", model);
+		List<Customer> customers = (List<Customer>) model.get("customers");
+		for(Customer customer: customers){
+			if(customer.getFirstName().equals(name)){
+				menu.removeCustomer(customer);
+			}
+		}
+		return new ModelAndView("customer/ViewCustomers", model);
 	}
 	
 }

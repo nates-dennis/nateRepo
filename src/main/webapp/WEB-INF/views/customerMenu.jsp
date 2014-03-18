@@ -9,7 +9,7 @@
 <body>
 	<ul class="subMenu">
 		<li><a href="/natesRepo/CustomerMenu/AddCustomer">Add Customer</a></li>
-		<li><a href="RemoveCustomer.jsp">Remove Customer</a></li>
+		<li><a href="/natesRepo/CustomerMenu/RemoveCustomer">Remove Customer</a></li>
 		<li><a href="/natesRepo/CustomerMenu/ViewCustomers">view Customers</a></li>
 	</ul>
 </body>

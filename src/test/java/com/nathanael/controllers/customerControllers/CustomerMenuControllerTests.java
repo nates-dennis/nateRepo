@@ -30,6 +30,7 @@ public class CustomerMenuControllerTests {
 	@Before
 	public void setup(){
 		customerMenuController = new CustomerMenuController();
+		customerMenuController.setMenu(new CustomerMenu());
 		MockitoAnnotations.initMocks(this);
 	}
 	
@@ -86,13 +87,24 @@ public class CustomerMenuControllerTests {
 	}
 	
 	@Test
-	public void testDeleteCustomer(){
+	public void testGetDeleteCustomerList(){
 		
 		
-		ModelAndView mav = customerMenuController.deleteCustomer(customer, model);
+		ModelAndView mav = customerMenuController.getDeleteCustomerList(model);
+		assertEquals("customer/RemoveCustomer",mav.getViewName());
+//		assertEquals(model, mav.getModel());
+	}
+	
+	@Test
+	public void testSubmitDeleteCustomer(){
 		
-		assertEquals(mav.getViewName(), "customerMenu");
-		assertEquals(mav.getModel(), model);
+		Mockito.when(model.get("customers")).thenReturn(getCustomers());
+		
+		ModelAndView mav = customerMenuController.submitDeleteCustomer("nat", model);
+		
+		Mockito.verify(model).get("customers");
+		
+		assertEquals("customer/ViewCustomers", mav.getViewName());
 	}
 	
 	private List<Integer> getAgeList() {
