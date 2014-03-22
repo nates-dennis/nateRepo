@@ -26,7 +26,7 @@
 
 	<bean id="menu" class="com.nathanael.customer.CustomerMenu" />
 	
-	<bean>
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource">
 			<ref bean="dataSource"/>
 		</property>
@@ -38,16 +38,17 @@
 		</property>
 		<property name="annotatedClasses">
 			<list>
-				<value>com.nathanael.customer</value>
+				<value>com.nathanael.customer.Customer</value>
 			</list>
 		</property>
 	</bean>
 	
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driver" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql" />
+		<property name="url" value="jdbc:mysql//localhost/nate_db" />
 		<property name="username" value="root" />
-		<property name="password" value="root" />
+		<property name="password" value="nate" />
+		<property name="hbm2ddl.auto" value="create"/>			
 	</bean>
 	
 </beans>
