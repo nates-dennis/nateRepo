@@ -1,7 +1,9 @@
 package com.nathanael.customer;
 
 import java.util.List;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CustomerMenu implements ICustomer {
 
 	private CustomerDao cus;
