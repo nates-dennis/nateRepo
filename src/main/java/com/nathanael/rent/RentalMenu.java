@@ -20,11 +20,7 @@ public class RentalMenu {
 	}
 	
 	public void calculateDiscount(){
-		if(r.getC().getAge() > 50){
-			r.setRentCost(-0.25*r.getRentCost());
-		}else if(r.getC().getAge() < 25){
-			r.setRentCost(1.1*r.getRentCost());
-		}
+		RentUtils.calculateDiscount(r);
 	}
 	
 	public void rent(Vehicle v, Customer c){

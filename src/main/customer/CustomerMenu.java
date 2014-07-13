@@ -7,6 +7,7 @@ public class CustomerMenu implements ICustomer {
 	private CustomerDao cus;
 	
 	
+	
 
 	public CustomerMenu() {
 		cus = new CustomerDaoImpl();
